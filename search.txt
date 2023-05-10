@@ -1,0 +1,104 @@
+//Question 1
+public static int seqSearch(String[] list, String item) {
+      for(int i = 0; i < list.length; i++) {
+         if(list[i].equals(item)) {
+            return i;
+         }
+      }
+      return -1;
+   }
+
+//Question 2
+   //Returns index of item in array
+   public static int seqSearch(int[] list, int num) {
+      for(int i = 0; i < list.length; i++) {
+         if(list[i] == num) {
+            return i; //Returns index
+         }
+      }
+      return -1; //Returns -1 if not found
+   }
+   
+   public static void main(String[] args) {
+      //Vars
+      int[] numbers = new int[20];
+      int value;
+      
+      Random rand = new Random();
+      Scanner n = new Scanner(System.in);
+      
+      //Fill array with random numbers
+      for(int i = 0; i < numbers.length; i++) {
+         numbers[i] = rand.nextInt();
+      }
+      
+      //System.out.print(Arrays.toString(numbers));
+      
+      //User input
+      System.out.print("Number you are searching for: ");
+      value = n.nextInt();
+      
+      //Sysout index
+      if (seqSearch(numbers, value) == -1) {
+         System.out.println("Number not found!");
+      } else {
+         System.out.println("The index of that number is " + seqSearch(numbers,value));
+      }
+   }
+
+//Question 3
+   //Returns index of item in array
+   public static int seqSearch(int[] list, int num) {
+      for(int i = list.length-1; i >= 0; i++) {
+         if(list[i] == num) {
+            return i; //Returns index
+         }
+      }
+      return -1; //Returns -1 if not found
+   }	
+
+//Question 4 a)
+   //Returns index of item in array
+   public static int seqSearch(int[] list, int num) {
+      for(int i = 0; i < list.length; i++) {
+         if(list[i] == num) {
+            return i; //Returns index
+         }
+      }
+      return -1; //Returns -1 if not found
+   }
+   
+   public static void main(String[] args) {
+      //Vars
+      int[] numbers = new int[20];
+      int value;
+      int temp;
+      
+      Random rand = new Random();
+      Scanner n = new Scanner(System.in);
+      
+      //Fill array with random numbers
+      for(int i = 0; i < numbers.length; i++) {
+         numbers[i] = rand.nextInt();
+      }
+      
+      //System.out.print(Arrays.toString(numbers));
+      
+      //User input
+      System.out.print("Number you are searching for: ");
+      value = n.nextInt();
+      
+      //Set temp value 
+      temp = seqSearch(numbers,value);
+      
+      //Sysout index
+      if (seqSearch(numbers, value) == -1) {
+         System.out.println("Number not found!");
+      } else {
+         //Swap numbers
+         numbers[temp] = numbers[temp-1];
+         numbers[temp-1] = value;
+            
+         //System.out.println(Arrays.toString(numbers));
+      }
+   }
